@@ -25,6 +25,16 @@ export type VideoPlan = {
   sourceAudio: boolean;
   music?: string;
   logo?: string;
+  design?: {
+    fontFamily?: string;
+    textColor?: string;
+    mutedColor?: string;
+    frameColor?: string;
+    frameRadius?: number;
+    logoSize?: number;
+    decorations?: boolean;
+    layout?: 'classic' | 'app';
+  };
   scenes: Scene[];
 };
 export type RenderProps = {
