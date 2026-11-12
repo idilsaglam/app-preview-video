@@ -1,0 +1,7 @@
+node_modules/
+.work/
+renders/
+public/*.mp4
+private/
+.DS_Store
+*.log

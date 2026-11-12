@@ -1,0 +1,49 @@
+{
+  "mode": "app-store",
+  "appName": "Pocket Trails",
+  "language": "en",
+  "accent": "#c4f273",
+  "background": "#102c24",
+  "headline": "A little more outside.",
+  "cta": "Find your next small adventure",
+  "disclosure": "Fictional demo \u2014 not a released app",
+  "fictional": true,
+  "provenance": "synthetic",
+  "capture": {
+    "appVersion": "fictional-v1",
+    "device": "Remotion generated interface",
+    "date": "2026-11-11",
+    "simulatedConditions": "Entire interface is a fictional demonstration"
+  },
+  "sourceAudio": false,
+  "scenes": [
+    {
+      "file": "sample.mp4",
+      "start": 0.0,
+      "duration": 6,
+      "caption": "Find a small adventure.",
+      "evidence": "The generated Explore screen shows the Garden Loop card."
+    },
+    {
+      "file": "sample.mp4",
+      "start": 7.5,
+      "duration": 6,
+      "caption": "One loop. Three discoveries.",
+      "evidence": "The generated route screen shows three illustrative stops."
+    },
+    {
+      "file": "sample.mp4",
+      "start": 15.0,
+      "duration": 6,
+      "caption": "Pause. Look a little closer.",
+      "evidence": "The generated discovery screen shows an illustrated leaf."
+    },
+    {
+      "file": "sample.mp4",
+      "start": 22.5,
+      "duration": 7,
+      "caption": "Keep a little memory.",
+      "evidence": "The generated journal shows a fictional completion."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: 'App Preview Video'
+  short_description: 'Edit app recordings into launch and store videos'
+  default_prompt: 'Use $app-preview-video to inspect my app recordings, plan an honest edit, and render a launch video with an editable project.'
+policy:
+  allow_implicit_invocation: true

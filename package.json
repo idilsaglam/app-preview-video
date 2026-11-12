@@ -1,0 +1,38 @@
+{
+  "name": "app-preview-video",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turn real app recordings into editable launch videos and technically checked App Store preview drafts.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "doctor": "node scripts/cli.mjs doctor",
+    "sample": "node scripts/cli.mjs sample",
+    "inspect": "node scripts/cli.mjs inspect",
+    "render": "node scripts/cli.mjs render",
+    "validate": "node scripts/cli.mjs validate",
+    "teaser": "node scripts/cli.mjs teaser",
+    "studio": "remotion studio src/index.tsx",
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "install-skill": "node scripts/install.mjs",
+    "format:check": "prettier --check src scripts tests"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.542",
+    "@remotion/cli": "4.0.542",
+    "@remotion/renderer": "4.0.542",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  }
+}
