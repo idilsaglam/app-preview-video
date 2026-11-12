@@ -3,7 +3,7 @@
 Copy one of the example JSON files. File paths are relative to `--recordings`; absolute paths, traversal and escaping symlinks are rejected. No credentials or remote media URLs are needed.
 
 - `mode`: `launch` or `app-store`.
-- `appName`, `language`, `accent`, `background`, `headline`, `cta`, `disclosure`: text/brand settings. Colours use six-digit hex. Headline is launch-only; disclosure appears in both outputs. Keep access and paid-feature disclosures truthful. Captions are authored in `language`; this tool does not translate them automatically.
+- `appName`, `language`, `accent`, `background`, `headline`, `cta`, `disclosure`: text/brand settings. Colours use six-digit hex. Headline is launch-only; disclosure is optional on-screen text and appears in both outputs when nonempty. For launch videos, set it to an empty string when no on-screen disclosure is needed; capture provenance remains in the report regardless. Keep access and paid-feature disclosures truthful. Captions are authored in `language`; this tool does not translate them automatically.
 - `fictional`: explicit boolean. `provenance`: `device`, `simulator`, `synthetic`, or `unknown`.
 - `capture`: `appVersion`, `device`, `date`, `simulatedConditions`; use `none` for no simulation. These declarations require human verification.
 - `sourceAudio`: boolean, default to false in authored plans. Optional `music` and `logo` reference local files. Music must cover the whole edit; logo must be PNG/JPEG/WebP. Launch-only logo.
