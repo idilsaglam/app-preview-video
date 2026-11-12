@@ -182,6 +182,36 @@ export function validatePlan(plan, recordings, probeFn = probe) {
   for (const key of ['accent', 'background'])
     if (!/^#[0-9a-f]{6}$/i.test(plan[key]))
       throw new Error(`${key} must be a six-digit hex colour`);
+  if (plan.design !== undefined) {
+    const d = plan.design;
+    if (!d || typeof d !== 'object' || Array.isArray(d))
+      throw new Error('design must be an object of app design tokens');
+    for (const key of ['textColor', 'mutedColor', 'frameColor'])
+      if (d[key] !== undefined && !/^#[0-9a-f]{6}$/i.test(d[key]))
+        throw new Error(`design.${key} must be a six-digit hex colour`);
+    for (const [key, min, max] of [
+      ['frameRadius', 0, 100],
+      ['logoSize', 32, 140],
+    ])
+      if (
+        d[key] !== undefined &&
+        (!Number.isFinite(d[key]) || d[key] < min || d[key] > max)
+      )
+        throw new Error(`design.${key} must be between ${min} and ${max}`);
+    if (d.layout !== undefined && !['classic', 'app'].includes(d.layout))
+      throw new Error('design.layout must be classic or app');
+    if (d.decorations !== undefined && typeof d.decorations !== 'boolean')
+      throw new Error('design.decorations must be a boolean');
+    if (
+      d.fontFamily !== undefined &&
+      (typeof d.fontFamily !== 'string' ||
+        !d.fontFamily.trim() ||
+        d.fontFamily.length > 200)
+    )
+      throw new Error(
+        'design.fontFamily must be a nonempty local CSS font stack, at most 200 characters',
+      );
+  }
   if (
     typeof plan.fictional !== 'boolean' ||
     typeof plan.sourceAudio !== 'boolean'
@@ -316,6 +346,8 @@ export function reportFor(file, plan) {
       bitrateNote:
         'This pipeline targets 11 Mbps video and 256 kbps AAC; actual averages can be lower for static images or silence. Standalone validation cannot establish original encoder settings.',
     },
+    branding: { logo: plan.logo ?? null, design: plan.design ?? null },
+    onScreenDisclosure: plan.disclosure,
     provenance: {
       kind: plan.provenance,
       fictional: plan.fictional,

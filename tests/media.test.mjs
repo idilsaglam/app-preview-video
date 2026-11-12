@@ -181,3 +181,27 @@ test('non-square final pixels fail export validation', () => {
   );
   assert.equal(checks.find((x) => x.name === 'square-pixels').pass, false);
 });
+
+test('app design tokens validate without requiring an on-screen capture label', () => {
+  const p = fixture();
+  p.mode = 'launch';
+  p.provenance = 'simulator';
+  p.fictional = false;
+  p.disclosure = '';
+  p.design = {
+    textColor: '#111111',
+    mutedColor: '#555555',
+    frameColor: '#dddddd',
+    frameRadius: 40,
+    logoSize: 120,
+    layout: 'app',
+    decorations: false,
+    fontFamily: '-apple-system, sans-serif',
+  };
+  assert.equal(validatePlan(p, dir, fake).frames, 750);
+  p.design.logoSize = 900;
+  assert.throws(() => validatePlan(p, dir, fake), /logoSize/);
+  p.design.logoSize = 120;
+  p.design.textColor = 'white';
+  assert.throws(() => validatePlan(p, dir, fake), /textColor/);
+});

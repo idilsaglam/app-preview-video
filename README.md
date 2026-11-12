@@ -116,6 +116,10 @@ Deliver the MP4, poster, editable scene plan and validation report.
 Keep source recordings unchanged. Do not publish or upload anything.
 ```
 
+The skill first looks for your real logo/app icon and design references in the supplied assets or app project. If the logo is missing, it asks before rendering; if multiple versions exist, it asks which to use. You can explicitly choose a text-only treatment. It derives colours, typography and framing from your app instead of copying the demo's visual style, then shows an opening-frame direction and caption style.
+
+For launch videos, simulator/test-location information stays in the plan and report by default, rather than being automatically printed over the footage. Keep disclosures that are necessary to avoid misleading viewers. Fictional examples remain labelled, and App Store capture requirements still apply.
+
 The agent should inspect the actual footage, write a JSON scene plan and run the tools. The CLI does not independently understand video or invent a storyboard.
 
 To revise an edit:
